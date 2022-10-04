@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="stylee.css">
+    <title>Projeto Player Spotify</title>
+    <style>
+        .container{
+            background: linear-gradient(to left,#97ee16, #be07ec);        }
+    </style>
+</head>
+<body class="container-fluid">
+    <div class=" container containeres">
+        <img src="img/hungria-hip-hop.jpg" class="border img mb-4">
+        <div class="descricao">
+            <h2>Nome da música</h2>
+            <i>João Tinti</i>
+        </div>
+        <div class="duracao">
+            <div class="barra">
+                <progress value="0" max="1"></progress>
+                <div class="ponto"></div>
+            </div>
+            <div class="tempo">
+                <p class="inicio">0:00</p>
+                <p class="fim">3:40</p>
+            </div>
+        </div>
+        <div class="player">
+            <i class="fas fa-step-backward setas anterior"></i>
+            <i class="fas fa-play-circle botao-play"></i>
+            <i class="fas fa-pause-circle botao-pause"></i>
+            <i class="fas fa-step-forward setas proximo"></i>
+        </div>
+        <audio src="musica/hungriahiphop-amor-e-fe-a4c807bb.mp3"></audio>
+    </div>
+        
+    <script>
+        let musicas = [
+            {titulo:'amor e Fe', artista:'Hungria Hip Hop', source:'musicas/hungriahiphop-amor-e-fe-a4c807bb', img:'img/hungria-hip-hop.jpg'},
+            {titulo:'Beijo com Trap', artista:'Hungria Hip Hop', source:'musica/hungriahiphop-beijo-com-trap-wwwpalcomp3comdjmixer-djmixeroficial-2116517c', img:'img/hungria-hip-hop.jpg'},
+            {titulo:'Chovendo inimigos', artista:'Hungria Hip Hop', source:'musica/hungriahiphop-chovendo-inimigo-a92589f4', img:'img/hungria-hip-hop.jpg'},
+            {titulo:'Made in Favela', artista:'Hungria Hip Hop', source:'musicas/hungriahiphop-madeinfavela-b7355e2c', img:'img/hungria-hip-hop.jpg'},
+            {titulo:'Pacificadores das Ruas', artista:'Hungria Hip Hop', source:'musica/hungriahiphop-pacificadores-a-rua-part-wwwsuamusicacombrdjmixeroficial-djmixeroficial-c3beee4c', img:'img/hungria-hip-hop.jpgs'},        
+    ];
+
+    // INICIO
+    let musica = document.querySelector('audio');
+    let musicaIndex = 0;
+
+    let nomeMusica = document.querySelector('.descricao h2');
+    let nomeArtista = document.querySelector('.descricao i');
+    let imagem = document.querySelector('img');
+    let tempoDecorrido = document.querySelector('.tempo .inicio');
+    let duracaoMusica = document.querySelector('.tempo .fim');
+
+    nomeMusica.textContent = musicas[musicaIndex].titulo;
+    nomeArtista.textContent = musicas[musicaIndex].artista;
+    imagem.setAttribute('src', musicas[musicaIndex].img);
+    duracaoMusica.textContent = segundosParaMinutos(Math.floor(musica.duration));
+
+    // EVENTOS
+    document.querySelector('.botao-play').addEventListener('click', tocarMusica);
+
+    document.querySelector('.botao-pause').addEventListener('click', pausarMusica);
+
+    musica.addEventListener('timeupdate', atualizarBarra);
+
+    document.querySelector('.anterior').addEventListener('click', () => {
+        musicaIndex--; 
+        if (musicaIndex < 0){
+            musicaIndex = 4;
+        }
+        renderizarMusica(musicaIndex);
+    });
+
+    document.querySelector('.proximo').addEventListener('click', () => {
+        musicaIndex++;
+        if (musicaIndex > 4){
+            musicaIndex = 0;
+        }
+        renderizarMusica(musicaIndex);
+    });
+
+    // FUNÇÕES
+
+    function renderizarMusica(musicaIndex){
+        musica.setAttribute('src', musicas[musicaIndex].source);
+
+        musica.addEventListener('loadeddata', () => {
+            nomeMusica.textContent = musicas[musicaIndex].titulo;
+            nomeArtista.textContent = musicas[musicaIndex].artista;
+            imagem.src = musicas[musicaIndex].img;
+        
+            duracaoMusica.textContent = segundosParaMinutos(Math.floor(musica.duration));
+        });
+
+        document.body.append(musica);
+    }
+    //função para iniciar musica 
+    function tocarMusica(){
+        musica.play();
+
+        document.querySelector('.botao-play').style.display = 'none';
+        document.querySelector('.botao-pause').style.display = 'block';
+    }
+
+    function pausarMusica(){
+        musica.pause();
+        document.querySelector('.botao-play').style.display = 'block';
+        document.querySelector('.botao-pause').style.display = 'none';
+    }
+
+    function segundosParaMinutos(segundos){
+        let campoMinutos = Math.floor(segundos / 60);
+        let campoSegundos = segundos % 60;
+
+        if (campoSegundos < 10){
+            campoSegundos = '0'+ campoSegundos;
+        }
+        return `${campoMinutos}:${campoSegundos}`;
+    }
+
+    function atualizarBarra(){
+        let barra = document.querySelector('progress');
+        barra.style.width = Math.floor((musica.currentTime / musica.duration)*100) + '%';
+        tempoDecorrido.textContent = segundosParaMinutos(Math.floor(musica.currentTime));
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+*{
+    margin: 0px;
+    border: 0px;
+}
+.title{
+    color: white;
+    z-index: 1;
+    text-align: center;    
+    font-size: 8vw;
+} 
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+    height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    background :  linear-gradient(to right,#e0933a, #f806bc); 
+    
+   
+}
+.decoration{
+    text-decoration: none;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+}
+.decoration:hover{
+    text-decoration: none;
+    color:white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+    height: 70vh;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+.container p {
+  font-size: 3rem;
+  padding: 0.5rem;
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+  text-align: center;
+  overflow: hidden;
+}
+.container p span.typed-text {
+  font-weight: normal;
+  color: #ffffff;
+}
+.container p span.cursor {
+  display: inline-block;
+  background-color: #ccc;
+  margin-left: 0.1rem;
+  width: 3px;
+  animation: blink 1s infinite;
+}
+.container p span.cursor.typing {
+  animation: none;
+}
+@keyframes blink {
+  0%  { background-color: #ccc; }
+  49% { background-color: #ccc; }
+  50% { background-color: transparent; }
+  99% { background-color: transparent; }
+  100%  { background-color: #ccc; }
+}
+@media only screen and (max-width: 600px) {
+  .title{
+    color: white;
+    z-index: 1;
+    text-align: center;    
+    font-size: 12vw;
+  } 
+
+}
+.a1{
+    opacity: 1;
+    animation: a1 5s infinite 0s;
+}
+@keyframes a1 {
+    0%      { opacity: 0.99;  }
+    10%     { opacity: 0.66; }
+    20%     { opacity: 0.33; }
+    30%     { opacity: 0; }
+    40%     { opacity: 0.33; }
+    50%     { opacity: 0.66; }
+    75%     { opacity: 0.99; }
+    100%    { opacity: 1; }
+}
+.a2{
+    opacity: 1;
+    animation: a2 5s infinite 3s;
+}
+@keyframes a2 {
+    0%      { opacity: 0.99;  }
+    10%     { opacity: 0.66; }
+    20%     { opacity: 0.33; }
+    30%     { opacity: 0; }
+    40%     { opacity: 0.33; }
+    50%     { opacity: 0.66; }
+    75%     { opacity: 0.99; }
+    100%    { opacity: 1; }
+  }
+.a3{
+    opacity: 1;
+    animation: a3 5s infinite 6s;
+}
+@keyframes a3 {
+    0%      { opacity: 0.99;  }
+    10%     { opacity: 0.66; }
+    20%     { opacity: 0.33; }
+    30%     { opacity: 0; }
+    40%     { opacity: 0.33; }
+    50%     { opacity: 0.66; }
+    75%     { opacity: 0.99; }
+    100%    { opacity: 1; }
+  }
+.a4{
+    opacity: 1;
+    animation: a4 20s infinite;
+}
+@keyframes a4 {
+    0%      { opacity: 0;  }
+    49%     { opacity: 1; }
+    50%     { opacity: 1; }
+    99%     { opacity: 1; }
+    100%    { opacity: 1; }
+  }

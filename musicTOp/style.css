@@ -1,0 +1,112 @@
+.aling{
+   display: flex;
+   align-content: flex-end;
+   justify-content: end;
+   border-radius: 100%;
+
+}
+.imgSertanejo{
+   background-image: url("img/sertanejo.png");
+   background-size: cover;
+   background-position: start;
+   background-repeat: no-repeat;
+}
+.imgPostMalone{
+   background-image: url("img/post-malone.webp");
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+}
+.imgJorgeEMatheus{
+   background-image: url("img/jorge-e-matheus.webp");
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+}
+.imgsimoneESimaria{
+   background-image: url("img/simone-simaria.webp");
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+}
+.imgtriboDaPeriferia{
+   background-image: url("img/Tribo-da-Periferia.webp");
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+}
+.imgJao{
+   background-image: url("img/safadao.png");
+   background-size: cover;
+   background-position: top;
+   background-repeat: no-repeat;
+}
+.imgLuanSantana{
+   background-image: url("img/luanSantana.jpg");
+   background-size: cover;
+   background-position: start;
+   background-repeat: no-repeat;
+}
+.imgGustavoLima{
+   background-image: url("img/gustavo-lima.jpg");
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+}
+.img7Minutoz{
+   background-image: url("img/7-minutoz.jpg");
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+}
+.imgColdPlay{
+   background-image: url("img/ColdPlay.jpg");
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+}
+.imgHungria{
+   background-image: url("img/hungria-hip-hop.jpg");
+   background-size: cover;
+   background-position: start;
+   background-repeat: no-repeat;
+}
+.imgjustinBieber{
+   background-image: url("img/justinBieber.jpg");
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+}
+.imgimagineDragon{
+   background-image: url("img/imagineDragon.jpg");
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+}
+.imgPop{
+   background-image: url("img/pop.jpg");
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+}
+.bg-roxo{
+   background-color: blueviolet;
+}
+.decoration{
+   text-decoration: none;  
+}
+.br{
+   border-radius: 100%;
+}
+
+
+@media only screen and (min-width: 992px) {
+   .caixa{
+      width: 45vw;
+      height: 35vh;
+   }
+   .caixa3{
+      height: 30vh;
+   }
+
+}
